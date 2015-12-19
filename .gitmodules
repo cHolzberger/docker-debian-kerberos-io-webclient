@@ -4,6 +4,3 @@
 [submodule "kerberos-web"]
 	path = kerberos-web
 	url = https://github.com/kerberos-io/web
-[submodule "ffmpeg"]
-	path = ffmpeg
-	url = git://source.ffmpeg.org/ffmpeg.git
