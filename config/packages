@@ -1,0 +1,15 @@
+nginx 	install 
+supervisor 	install
+curl 	install
+php5-fpm 	install 
+php5-curl install 
+php5-gd install 
+php5-idn install 
+php-pear install 
+php5-imagick install 
+php5-mcrypt install
+php5-memcache install 
+lsb-release install 
+git install 
+nodejs install
+
