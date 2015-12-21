@@ -10,13 +10,19 @@ RUN set-selections php5
 
 # Web Interface
 COPY ./kerberos-web /var/www
+COPY ./config/kerberos-app.php /var/www/app/config/app.php
+
 COPY composer.phar /
-RUN cd /var/www && rm .git && php /composer.phar install && chmod -R 777 /var/www && \
-	cd /var/www/public &&  npm -g install bower && bower --allow-root install
+RUN cd /var/www && \
+ 	rm .git && \
+	php /composer.phar install && \
+	chmod -R 777 /var/www && \
+	cd /var/www/public && \
+ 	npm -g install bower && \
+	bower --allow-root install
 
 # supervisor config
 
-COPY ./config/kerberos-app.php /var/www/app/config/app.php
 EXPOSE 80
 VOLUME /var/www/public/capture/
 
