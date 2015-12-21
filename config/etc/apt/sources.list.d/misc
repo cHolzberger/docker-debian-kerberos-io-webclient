@@ -4,8 +4,5 @@ deb http://cdn.debian.net/debian/ jessie-updates main
 deb-src http://cdn.debian.net/debian/ jessie-updates main
 deb http://security.debian.org/ jessie/updates main
 deb-src http://security.debian.org/ jessie/updates main
-deb http://dl.hhvm.com/debian jessie main
-deb https://deb.nodesource.com/node_5.x jessie main
-deb-src https://deb.nodesource.com/node_5.x jessie main
 
 

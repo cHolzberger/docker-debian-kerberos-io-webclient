@@ -1,22 +1,14 @@
-FROM debian:jessie
+FROM mosaiksoftware/debian
 MAINTAINER  Chrisitan Holzberger <ch@mosaiksoftware.de>
 
-ENV DEBIAN_FRONTEND noninteractive
-##### PACKAGE INSTALLATION #####
-COPY ./config/dpkg_nodoc /etc/dpkg/dpkg.conf.d/01_nodoc
-COPY ./config/apt_nosystemd /etc/apt/preferences.d/systemd
-
-RUN echo "Yes, do as I say!" | apt-get remove -y --force-yes --purge --auto-remove systemd udev
-
+##### START CUSTOM SCRIPT####
 RUN apt-get update && apt-get install	-y apt-transport-https curl
 COPY config/source.list /etc/apt/sources.list
 
 RUN	curl -s https://deb.nodesource.com/gpgkey/nodesource.gpg.key | apt-key add - 
 RUN apt-key adv --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 0x5a16e7281be7a449
 
-COPY config/packages /packages
-COPY tools/set-selections.sh /set-selections.sh
-RUN bash /set-selections.sh 
+RUN set-selections php5
 
 # Web Interface
 COPY ./kerberos-web /var/www
